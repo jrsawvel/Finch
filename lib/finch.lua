@@ -6,6 +6,7 @@ local rex   = require "rex_pcre"
 local config = require "config"
 
 
+
 function M.create_homepage_html_file(html)
 
     local doc_root = config.get_value_for("default_doc_root")
@@ -22,15 +23,29 @@ function M.create_homepage_html_file(html)
 end
 
 
-function M.create_feed_html_file(url, html)
+function M.create_feed_html_file(feedurl, html, homepageurl)
 
-    local protocol, domain = rex.match(url, "(\\w+://)([.A-Za-z0-9\\-]+)/", 1)
+    if homepageurl ~= nil then
+        homepageurl =  rex.gsub(homepageurl, "[^a-zA-Z0-9]","")
+    end
+
+    local protocol, domain = rex.match(feedurl, "(\\w+://)([.A-Za-z0-9\\-]+)/", 1)
 
     local d = rex.gsub(domain, "\\.", "", nil, "is")
 
     local doc_root = config.get_value_for("default_doc_root")
 
-    local html_filename = doc_root .. "/" .. d .. "feed.html"
+    local html_filename
+
+    local html_page
+
+    if homepageurl ~= nil then
+        html_page = homepageurl .. "feed.html"
+        html_filename = doc_root .. "/" .. html_page
+    else
+        html_page = d .. "feed.html"
+        html_filename = doc_root .. "/" .. html_page
+    end
 
     local f = io.open(html_filename, "w")
     if f == nil then
@@ -40,7 +55,7 @@ function M.create_feed_html_file(url, html)
         f:close()
     end
 
-    return domain, d .. "feed.html"
+    return domain, html_page
 end
 
 

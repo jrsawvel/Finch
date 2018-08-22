@@ -118,7 +118,11 @@ for url_ctr=1, #urls do
 
             local html_output = page.get_output(parsed.feed.title) 
 
-            local feed_domain, feed_html_file = finch.create_feed_html_file(url, html_output)
+            local feed_domain, feed_html_file = finch.create_feed_html_file(url, html_output, parsed.feed.links[1].href)
+
+            if parsed.feed.title == nil or string.len(parsed.feed.title) < 3 then
+                parsed.feed.title = parsed.feed.links[1].href
+            end
 
             homepage_url_list[working_feed_ctr] = {
                 feedhtmlfile  =  feed_html_file, 

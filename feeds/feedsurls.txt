@@ -21,7 +21,6 @@ http://ericwiegardt.com/feed/
 https://micheleclamp.com/blog?format=RSS
 http://feeds.feedburner.com/OriginalWatercoloursByTimWilmot
 http://hoffmannwatercolors.blogspot.com/feeds/posts/default
-http://www.keesvanaalst.nl/wordpress/feed/
 https://citizensketcher.com/feed/
 http://watercolourfanatic.blogspot.com/feeds/posts/default
 http://ericcarleblog.blogspot.com/feeds/posts/default
@@ -30,3 +29,5 @@ http://redandthepeanut.blogspot.com/feeds/posts/default
 https://sketchaway.wordpress.com/feed/
 https://blog.rileyblakedesigns.com/feed/
 https://www.woolandthegang.com/blog/feed/
+http://www.keesvanaalst.nl/wordpress/feed/
+https://letterboxd.com/demiadejuyigbe/rss/
