@@ -1,0 +1,42 @@
+{{> header}}
+
+<div style="float:right"><a href="/">home</a></div>
+
+<h1>{{{feedtitle}}}</h1>
+
+<p>
+<a href="{{{feedhomepage}}}">{{{feedhomepage}}}</a><br />
+
+{{#feedsubtitleexists}}
+{{{feedsubtitle}}}<br />
+{{/feedsubtitleexists}}
+
+{{#feedupdatedexists}}
+{{{feedupdated}}}<br />
+{{/feedupdatedexists}}
+
+<a href="{{{feedurl}}}">{{{feedurl}}}</a>
+</p>
+
+<hr />
+
+{{#itemsloop}}
+
+{{#itemtitleexists}}
+<h3>{{{itemtitle}}}</h3>
+{{/itemtitleexists}}
+
+{{#itemsummaryexists}}
+<p>
+{{{itemsummary}}}
+</p>
+{{/itemsummaryexists}}
+
+<p>
+<a href="{{{itemlink}}}">{{{itemupdated}}}</a>
+</p>
+
+<hr />
+{{/itemsloop}}
+
+{{> footer}}

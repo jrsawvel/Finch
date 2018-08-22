@@ -1,0 +1,8 @@
+    site_name:                      Finch
+    site_description:               Feed Reader
+    home_page:                      http://finch.soupmode.com
+    domain_name:                    finch.soupmode.com
+    app_name:                       Finch 1.0
+    template_home:                  /home/finch/Finch/tmpl
+    default_doc_root:               /home/finch/docroot
+    feeds_urls_file:                /home/finch/Finch/feeds/feedsurls.txt

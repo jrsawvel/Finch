@@ -1,0 +1,11 @@
+{{> header}}
+
+<h3>Finch Feed Reader List</h3>
+
+<ul>
+{{#feedpagesloop}}
+<li><a href="{{{feedhtmlfile}}}">{{{feedtitle}}}</a><!-- - <small>{{{feeddomain}}}</small>--></li>
+{{/feedpagesloop}}
+</ul>
+
+{{> footer}}
