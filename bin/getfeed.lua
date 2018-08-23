@@ -1,4 +1,4 @@
-#!/usr/bin/env lua
+#!/usr/local/bin/lua
 
 
 package.path = package.path .. ';/home/finch/Finch/lib/?.lua'
