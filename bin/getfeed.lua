@@ -22,22 +22,23 @@ local working_feed_ctr = 1
 for url_ctr=1, #urls do
 
     local url = urls[url_ctr]
+    print("Processing URL: " .. url)
 
     local body, code, headers, status = utils.fetch_url(url)
 
   if code >= 300 then
-        print("Could not fetch " .. url .. ". Status: " .. status)
+        print("Error: Could not fetch " .. url .. ". Status: " .. status)
   else
 
     body = utils.trim_spaces(body)
 
     if body == nil or string.len(body) < 1 then
-        error("nothing returned to parse for url " .. url)
+        print("Error: Nothing returned to parse for URL " .. url)
     else
         local parsed, errmsg = feedparser.parse(body, url)
 
         if parsed == nil then
-            error('consuming feeds suck. viva email newsletters. ' .. errmsg)
+            print("Error: " .. errmsg .. " for URL " .. url)
         else
             local a_entries = parsed.entries -- rss items
 
