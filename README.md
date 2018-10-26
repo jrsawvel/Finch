@@ -1,6 +1,6 @@
 # Finch
 
-*updated Aug 22, 2018*
+*updated Oct 26, 2018*
 
 My test site: <http://finch.soupmode.com>.
 
@@ -18,3 +18,6 @@ I doubt that I go as far as supporting the interesting Microsub spec, produced b
 
 <https://indieweb.org/microsub>
 
+Currently, Finch supports processing the following feed formats: RSS, Atom, and the humorously useful [RSS3](http://sawv.org/2018/08/21/rss-30-jokey-but-useful-spec.html). 
+
+I'd like to add support for the Reece-Simmons [JSON Feed format](https://jsonfeed.org) and the IndieWeb's [h-feed](https://indieweb.org/h-feed).

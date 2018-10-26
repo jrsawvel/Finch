@@ -4,6 +4,8 @@
 package.path = package.path .. ';/home/finch/Finch/lib/?.lua'
 
 local feedparser  = require "feedparser"
+local rex = require "rex_pcre"
+
 
 local utils  = require "utils"
 local page   = require "page"
@@ -39,8 +41,55 @@ for url_ctr=1, #urls do
 
         if parsed == nil then
             print("Error: " .. errmsg .. " for URL " .. url)
+            print("Determining whether feed is a different format.")
+            if url:match("rss3.txt") or headers["content-type"]:match("text/plain") then
+                local blocks = utils.split(body, "\n\n")
+                local feed = {}
+                local items_array = {}
+
+                for i=1,#blocks do
+                    local tmp_hash = {}
+                    for n, v in rex.gmatch(blocks[i], "(\\w+): (.*)", "", nil) do
+                        tmp_hash[n] = v
+                    end
+                    if i > 1 then
+                        table.insert(items_array, tmp_hash)
+                    else
+                        feed.site = tmp_hash
+                    end
+                end
+
+                feed.items = items_array
+
+                page.set_template_name("rss3feed")
+                page.set_template_variable("feedurl", url)
+                page.set_template_variable("feedtitle", feed.site.title)
+                page.set_template_variable("feedhomepage", feed.site.link)
+
+                page.set_template_variable("feedsubtitleexists", true)
+                page.set_template_variable("feedsubtitle", feed.site.description)
+
+                page.set_template_variable("feedupdatedexists", true)
+                page.set_template_variable("feedupdated", feed.site.created)
+
+                page.set_template_variable("itemsloop", feed.items)
+
+                local html_output = page.get_output(feed.site.title) 
+
+                local feed_domain, feed_html_file = finch.create_feed_html_file(url, html_output, feed.site.link)
+
+                homepage_url_list[working_feed_ctr] = {
+                    feedhtmlfile  =  feed_html_file, 
+                    feeddomain    =  feed_domain,
+                    feedtitle     =  feed.site.title
+                }
+                working_feed_ctr = working_feed_ctr + 1
+                page.reset()
+            else
+                print("Failed to parse feed for URL " .. url)
+            end
         else
-            local a_entries = parsed.entries -- rss items
+            local a_entries = parsed.entries -- rss/atom items
 
             page.set_template_name("feed")
             page.set_template_variable("feedurl", url)

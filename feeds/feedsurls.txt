@@ -1,4 +1,5 @@
-http://www.toledoblade.com/rss/local
+http://sora.soupmode.com/rss3.txt
+https://solar.lowtechmagazine.com/feeds/all.atom.xml
 http://expeditionaryart.com/feed/
 http://www.romneyridgefarm.com/blog?format=RSS
 http://onemancrochet.blogspot.com/feeds/posts/default
@@ -23,7 +24,6 @@ http://feeds.feedburner.com/brad-frosts-blog
 https://a.wholelottanothing.org/feed/
 https://boffosocko.com/feed/
 http://known.kevinmarks.com/content/all?_t=rss
-http://tantek.com/updates.atom
 https://granary.io/url?input=html&output=atom&url=https%3A%2F%2Faaronparecki.com/&hub=https%3A%2F%2Fswitchboard.p3k.io%2F
 https://adactio.com/journal/rss
 https://adactio.com/articles/rss
