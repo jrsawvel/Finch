@@ -1,4 +1,9 @@
 http://sora.soupmode.com/rss3.txt
+https://www.toledoblade.com/rss/local
+https://www.toledoblade.com/rss/art
+https://www.toledoblade.com/rss/opinion
+https://www.toledoblade.com/rss/sports
+https://itch.io/blog.rss
 https://solar.lowtechmagazine.com/feeds/all.atom.xml
 http://expeditionaryart.com/feed/
 http://www.romneyridgefarm.com/blog?format=RSS

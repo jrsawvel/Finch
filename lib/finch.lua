@@ -25,6 +25,8 @@ end
 
 function M.create_feed_html_file(feedurl, html, homepageurl)
 
+    homepageurl = feedurl -- jrs 08Mar2019 addition
+
     if homepageurl ~= nil then
         homepageurl =  rex.gsub(homepageurl, "[^a-zA-Z0-9]","")
     end
